@@ -17,7 +17,7 @@ const skillGroups={
   ['MCP','HyperionWave'],['Agentic workflows','HyperionWave · résumé'],['LLM logic design','Résumé'],['NLP','Hedgwork'],['Pattern recognition','Résumé'],['Behavioral analytics','Résumé'],['RAG','Folio'],['Sentence Transformers','Folio'],['PyTorch','LoopLab'],['Evaluation','Folio · LoopLab'],['Tool-call analytics','HyperionWave'],['AI observability','HyperionWave'],['AWS Rekognition','Shink AI Tech']
  ],
  data:[
-  ['Python','Hedgwork · Folio · LoopLab · FilingFlow'],['SQL','Résumé · Folio · FilingFlow'],['SQLite','Folio · LoopLab'],['PostgreSQL','FilingFlow'],['Apache Kafka','User-provided skills'],['Apache Airflow','FilingFlow'],['Redis','User-provided skills'],['Azure SQL','Hedgwork'],['DynamoDB','Hedgwork · Shink AI Tech'],['MongoDB','Shink AI Tech'],['MySQL','Résumé'],['Data Lake','FilingFlow'],['Parquet','FilingFlow'],['DuckDB','FilingFlow'],['Document extraction','Folio'],['Embeddings','Folio'],['SEC EDGAR','Folio · FilingFlow'],['Data synchronization','Shink AI Tech'],['Retrieval metrics','Folio']
+  ['Python','Hedgwork · Folio · LoopLab · FilingFlow'],['SQL','Résumé · Folio · FilingFlow'],['Apache Airflow','FilingFlow'],['Data Lake','FilingFlow · Bronze JSON, Silver Parquet and Gold summaries'],['ETL pipelines','FilingFlow · ingestion, transformation and PostgreSQL loads'],['Workflow orchestration','FilingFlow · DAG scheduling, retries and backfills'],['Data quality','FilingFlow · validation, quarantine and deduplication'],['Parquet','FilingFlow'],['DuckDB','FilingFlow'],['PostgreSQL','FilingFlow'],['SQLite','Folio · LoopLab'],['Apache Kafka','User-provided skills'],['Redis','User-provided skills'],['Azure SQL','Hedgwork'],['DynamoDB','Hedgwork · Shink AI Tech'],['MongoDB','Shink AI Tech'],['MySQL','Résumé'],['Document extraction','Folio'],['Embeddings','Folio'],['SEC EDGAR','Folio · FilingFlow'],['Data synchronization','Shink AI Tech'],['Retrieval metrics','Folio']
  ],
  platform:[
   ['Terraform','LedgerLens'],['Kubernetes','LedgerLens'],['Kubernetes deployments','User-provided skills'],['Helm','User-provided skills'],['Kustomize','DeployPilot'],['Docker','LedgerLens · Shink AI Tech · DeployPilot · FilingFlow'],['Apache Airflow','FilingFlow'],['Workflow orchestration','FilingFlow'],['Linux','User-provided skills'],['AWS IAM / VPC','User-provided skills'],['Infrastructure as Code','User-provided skills'],['Cloud automation','User-provided skills'],['Prometheus / Grafana','User-provided skills · DeployPilot'],['CI/CD','Shink AI Tech · résumé'],['GitHub Actions','LedgerLens · résumé'],['TeamCity','Résumé'],['Microservices','Hedgwork · Shink AI Tech'],['Serverless','Résumé'],['AWS Lambda','Résumé'],['Amazon S3','Résumé'],['Amazon ECS','Résumé'],['Azure AI Foundry','Résumé'],['System design','Résumé'],['Traefik','LedgerLens']
@@ -40,7 +40,8 @@ function renderSkillBubbles(){
  const portraitSkills=[
   ['Python','Hedgwork · Folio · LoopLab'],['TypeScript','Résumé · projects'],['System Design','Résumé'],
   ['Agentic Workflows','HyperionWave · résumé'],['RAG','Folio'],['MCP','HyperionWave'],
-  ['SQL','Résumé · Folio'],['Data Pipelines (Data Synchronization)','Shink AI Tech'],
+  ['SQL','Résumé · Folio · FilingFlow'],['Data Pipelines','Shink AI Tech · FilingFlow'],
+  ['Data Lake','FilingFlow'],['Apache Airflow','FilingFlow'],
   ['Docker','LedgerLens · Shink AI Tech'],['Kubernetes','LedgerLens'],['Terraform','LedgerLens']
  ];
  const visible=portraitSkills;
@@ -89,7 +90,7 @@ function renderSkillExplorer(){
  document.querySelector('#all-skill-groups').innerHTML=groups.map(([group,items])=>{
   const matches=items.filter(([name,source])=>`${name} ${source}`.toLowerCase().includes(search));
   shown+=matches.length;
-  return matches.length?`<section class="all-skill-group"><h3>${{ai:'AI + MACHINE LEARNING',data:'DATA + RETRIEVAL',platform:'PLATFORM + CLOUD',software:'SOFTWARE ENGINEERING'}[group]}</h3><div>${matches.map(([name,source])=>`<span class="all-skill-tag" title="Shown in: ${source}">${name}</span>`).join('')}</div></section>`:'';
+  return matches.length?`<section class="all-skill-group"><h3>${{ai:'AI + MACHINE LEARNING',data:'DATA ENGINEERING + RETRIEVAL',platform:'PLATFORM + CLOUD',software:'SOFTWARE ENGINEERING'}[group]}</h3><div>${matches.map(([name,source])=>`<span class="all-skill-tag" title="Shown in: ${source}">${name}</span>`).join('')}</div></section>`:'';
  }).join('');
  document.querySelector('#skill-count').textContent=`${shown} SKILLS${search?` MATCHING “${search.toUpperCase()}”`:activeSkillGroup==='all'?' ACROSS ALL DISCIPLINES':` IN ${activeSkillGroup.toUpperCase()}`}`;
 }
