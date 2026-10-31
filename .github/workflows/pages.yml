@@ -33,6 +33,7 @@ jobs:
             styles.css
             script.js
             assets/megha-portrait.jpeg
+            assets/MeghaNeelamana_resume.pdf
             assets/demos/*.mp4
       - name: Deploy site
         id: deployment

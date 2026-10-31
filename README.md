@@ -15,6 +15,7 @@ The included GitHub Actions workflow publishes the static site whenever `main` i
 - Role tabs tailor the framing and project selection.
 - Skill tabs filter the full, searchable toolkit by discipline; core skills orbit the portrait.
 - Project cards open source-grounded case studies with playable walkthroughs for all five projects.
+- The résumé is available as a direct download from the hero section.
 - Walkthrough clips are short, local recordings of the app flows, stored in `assets/demos/` and embedded in the matching case studies.
 - The layout adapts for mobile and supports reduced-motion preferences.
 
