@@ -145,6 +145,7 @@ document.querySelectorAll('.role-tab').forEach(button=>button.addEventListener('
 const dialog=document.querySelector('#case-modal');
 document.querySelectorAll('.project-open').forEach(button=>button.addEventListener('click',()=>{
   const project=cases[button.dataset.project];
+  if(!project){console.error(`Missing case study: ${button.dataset.project}`);return;}
   document.querySelector('#modal-kicker').textContent=project.kicker;
   document.querySelector('#modal-title').textContent=project.title;
   document.querySelector('#modal-summary').textContent=project.summary;
@@ -156,7 +157,8 @@ document.querySelectorAll('.project-open').forEach(button=>button.addEventListen
   demoSection.hidden=!project.demo;
   if(project.demo){demoVideo.src=project.demo;document.querySelector('#modal-demo-caption').textContent=project.demoCaption;demoVideo.load();}
   const link=document.querySelector('.modal-repo');link.href=project.url;
-  dialog.showModal();
+  if(typeof dialog.showModal==='function')dialog.showModal();
+  else dialog.setAttribute('open','');
 }));
 document.querySelector('.modal-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('close',()=>{const video=document.querySelector('#modal-demo-video');video.pause();video.removeAttribute('src');video.load();});
