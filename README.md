@@ -1,6 +1,6 @@
 # Megha Neelamana · portfolio
 
-A responsive, interactive portfolio for exploring Megha's work through four hiring lenses: AI, data, platform and software engineering. Featured projects include LedgerLens, Folio, LoopLab, TraceScope, DeployPilot, FilingFlow, AeroControl and GPUFleetLab.
+A responsive, interactive portfolio for exploring Megha's work through four hiring lenses: AI, data, platform and software engineering. Featured projects include LedgerLens, Folio, LoopLab, TraceScope, DeployPilot, FilingFlow, AeroControl GPUFleetLab, QubitGuard, FrameSight and BioForgeLab.
 
 ## Run locally
 
@@ -27,3 +27,7 @@ The included GitHub Actions workflow publishes the static site whenever `main` i
 4. Include only verified claims, measured outcomes and links that work.
 
 See `PROJECT_IDEAS.md` for suggested next builds. GPUFleetLab's visible walkthrough demonstrates the fleet overview, capacity, team quotas and cluster inventory; verify implementation details against its repository README before adding further technical claims.
+
+FrameSight demonstrates YOLO11 detection, ByteTrack tracking, OpenCV decoding, Streamlit, WebRTC and Pandas analytics. Its walkthrough is trimmed to exactly 2:35 and stored at `assets/demos/framesight.mp4`.
+
+BioForgeLab adds FASTA analysis, descriptor-based protein-solubility regression and reproducible model comparison. Its full walkthrough is stored at `assets/demos/bioforgelab.mp4`.

@@ -292,3 +292,21 @@ body::before{content:"";position:fixed;z-index:0;pointer-events:none;left:var(--
 body.fluid-touch::before{opacity:.8;transform:translate(-50%,-50%) rotate(28deg) scale(1.15,.82)}
 body[data-theme="dark"]::before{background:radial-gradient(ellipse 18% 29% at 50% 17%,#688affd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 71% 27%,#bd76ffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 83% 50%,#7765ffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 71% 72%,#c46effd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 50% 83%,#5d9cffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 29% 72%,#a16dffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 17% 50%,#4f88ffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 29% 28%,#b37affd0 0 70%,transparent 76%),radial-gradient(circle at 50% 50%,#c6a4ffed 0 10%,#8f62ffb0 11% 15%,transparent 16%);filter:blur(1px) saturate(150%);mix-blend-mode:screen}
 @media(prefers-reduced-motion:reduce){body::before{transition:none}}
+
+/* FrameSight: a schematic detection preview matching the project cards. */
+.framesight-art{background:#e6efec}
+.framesight-view{position:relative;overflow:hidden;min-height:210px;margin:20px 0;border-radius:10px;background:#132923;color:#b5efd3}
+.framesight-grid{position:absolute;inset:0;background-image:linear-gradient(#b5efd312 1px,transparent 1px),linear-gradient(90deg,#b5efd312 1px,transparent 1px);background-size:32px 32px}
+.framesight-box{position:absolute;left:18%;top:25%;width:25%;height:58%;border:2px solid #81e0af;border-radius:3px}
+.framesight-box span{position:absolute;top:-20px;left:-2px;white-space:nowrap;font:9px monospace;background:#81e0af;color:#132923;padding:3px 5px}
+.framesight-box i{display:grid;place-items:center;height:100%;font-size:52px;font-style:normal;opacity:.6}
+.framesight-box-secondary{left:57%;top:48%;width:30%;height:32%;border-color:#b1d7f1}
+.framesight-box-secondary span{background:#b1d7f1}
+.framesight-live{position:absolute;bottom:8px;left:10px;font-size:9px;letter-spacing:1px}
+
+/* BioForgeLab sequence and experiment schematic. */
+.bioforge-art{background:#e8f1ed}
+.bioforge-preview{margin:20px 0;min-height:210px;border:1px solid #bad5c7;border-radius:10px;overflow:hidden;background:#f4faf7;color:#255e48}
+.bioforge-sequence{padding:14px;background:#16392e;color:#a9ddc4;letter-spacing:3px;font-size:11px;overflow:hidden;white-space:nowrap}
+.bioforge-experiment{padding:20px;display:grid;gap:12px}.bioforge-experiment>.mono{font-size:9px;letter-spacing:1px}.bioforge-experiment strong{font-size:25px;letter-spacing:-1px}
+.bioforge-bars{display:flex;align-items:flex-end;height:45px;gap:8px}.bioforge-bars i{flex:1;height:65%;background:#70ad91;border-radius:3px 3px 0 0}.bioforge-bars i:nth-child(2){height:90%}.bioforge-bars i:nth-child(3){height:75%}.bioforge-bars i:nth-child(4){height:50%}.bioforge-bars i:nth-child(5){height:35%}
