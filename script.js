@@ -113,11 +113,58 @@ document.addEventListener('keydown',event=>{
 });
 window.addEventListener('resize',renderSkillBubbles);
 
+const themeToggle=document.querySelector('.theme-toggle');
+const savedTheme=localStorage.getItem('portfolio-theme');
+if(savedTheme==='dark')document.body.dataset.theme='dark';
+function syncThemeControl(){
+ const dark=document.body.dataset.theme==='dark';
+ themeToggle.setAttribute('aria-pressed',String(dark));
+ themeToggle.setAttribute('aria-label',`Switch to ${dark?'light':'dark'} theme`);
+ themeToggle.querySelector('.theme-toggle-face').textContent=dark?'☾':'☼';
+ themeToggle.querySelector('.theme-toggle-label').textContent=dark?'NIGHT MODE':'DAY MODE';
+ document.querySelector('meta[name="theme-color"]').content=dark?'#171717':'#f5f5f5';
+}
+syncThemeControl();
+themeToggle.addEventListener('click',()=>{
+ document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark';
+ localStorage.setItem('portfolio-theme',document.body.dataset.theme);
+ syncThemeControl();
+});
+
+let pointerTarget={x:50,y:45},pointerGlow={x:50,y:45},pointerFrame=0;
+function moveAmbientGlow(event){
+ pointerTarget={x:event.clientX/window.innerWidth*100,y:event.clientY/window.innerHeight*100};
+ if(pointerFrame)return;
+ const animate=()=>{
+  pointerGlow.x+=(pointerTarget.x-pointerGlow.x)*.12;
+  pointerGlow.y+=(pointerTarget.y-pointerGlow.y)*.12;
+  document.body.style.setProperty('--pointer-x',`${pointerGlow.x.toFixed(2)}%`);
+  document.body.style.setProperty('--pointer-y',`${pointerGlow.y.toFixed(2)}%`);
+  if(Math.abs(pointerTarget.x-pointerGlow.x)>.15||Math.abs(pointerTarget.y-pointerGlow.y)>.15)pointerFrame=requestAnimationFrame(animate);
+  else pointerFrame=0;
+ };
+ pointerFrame=requestAnimationFrame(animate);
+}
+window.addEventListener('pointermove',moveAmbientGlow,{passive:true});
+let fluidTouchTimer=0;
+window.addEventListener('pointerdown',event=>{
+ if(event.pointerType==='mouse'&&event.button!==0)return;
+ document.body.style.setProperty('--touch-x',`${event.clientX/window.innerWidth*100}%`);
+ document.body.style.setProperty('--touch-y',`${event.clientY/window.innerHeight*100}%`);
+ document.body.classList.remove('fluid-touch');
+ requestAnimationFrame(()=>document.body.classList.add('fluid-touch'));
+ clearTimeout(fluidTouchTimer);
+ fluidTouchTimer=setTimeout(()=>document.body.classList.remove('fluid-touch'),1050);
+},{passive:true});
+
 function filterProjects(role){
   document.querySelectorAll('.project-card').forEach(card=>{
     const roles=card.dataset.roles.split(',');
     card.classList.toggle('hidden',role!=='all'&&!roles.includes(role));
   });
+  const count=[...document.querySelectorAll('.project-card')].filter(card=>!card.classList.contains('hidden')).length;
+  const label=role==='all'?'across AI, data, platform and software engineering':`for ${({ai:'AI engineering',data:'data engineering',platform:'platform engineering',software:'software engineering'})[role]}`;
+  document.querySelector('#project-summary').textContent=`${count} hands-on ${count===1?'project':'projects'} ${label}.`;
 }
 document.querySelectorAll('.project-filter').forEach(button=>button.addEventListener('click',()=>{
   const role=button.dataset.projectRole;
