@@ -293,6 +293,27 @@ body.fluid-touch::before{opacity:.8;transform:translate(-50%,-50%) rotate(28deg)
 body[data-theme="dark"]::before{background:radial-gradient(ellipse 18% 29% at 50% 17%,#688affd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 71% 27%,#bd76ffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 83% 50%,#7765ffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 71% 72%,#c46effd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 50% 83%,#5d9cffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 29% 72%,#a16dffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 17% 50%,#4f88ffd0 0 70%,transparent 76%),radial-gradient(ellipse 18% 29% at 29% 28%,#b37affd0 0 70%,transparent 76%),radial-gradient(circle at 50% 50%,#c6a4ffed 0 10%,#8f62ffb0 11% 15%,transparent 16%);filter:blur(1px) saturate(150%);mix-blend-mode:screen}
 @media(prefers-reduced-motion:reduce){body::before{transition:none}}
 
+/* Recommendations sit between the introduction and skills. */
+.recommendations-section{padding:48px 10.8% 56px;scroll-margin-top:24px}
+.recommendations-heading{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:28px}
+.recommendations-heading h2{margin:0;font:600 clamp(30px,4vw,48px)/1.15 var(--display);letter-spacing:-.045em}
+.recommendations-heading h2 span{color:var(--muted)}
+.recommendations-heading .text-link{flex-shrink:0;line-height:1.6}
+.recommendations-list{display:grid;gap:20px;margin-top:34px}
+.recommendation-card{margin:0;padding:30px 34px;border:1px solid #ffffffa8;border-radius:20px;background:linear-gradient(140deg,#ffffffa0,#ffffff48);box-shadow:inset 0 1px 0 #ffffffd9,0 10px 30px #65537c0c;backdrop-filter:blur(20px) saturate(145%);-webkit-backdrop-filter:blur(20px) saturate(145%)}
+.recommendation-card figcaption{display:grid;gap:6px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.recommendation-card figcaption strong{font:700 21px/1.3 var(--display);letter-spacing:-.03em}
+.recommendation-card figcaption span{font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.recommendation-card figcaption small{font-size:12px;line-height:1.5;color:var(--muted)}
+.recommendation-card blockquote{margin:22px 0 0;font-size:16px;line-height:1.8}
+.recommendation-card blockquote p{margin:0 0 18px}
+.recommendation-card blockquote p:last-child{margin-bottom:0}
+body[data-theme="dark"] .recommendation-card{background:linear-gradient(140deg,#ffffff19,#ffffff08);border-color:#ffffff29;box-shadow:inset 0 1px 0 #ffffff22,0 8px 22px #0003}
+@media(max-width:650px){.recommendation-card{padding:23px 20px;border-radius:16px}.recommendation-card blockquote{font-size:14px}.recommendation-card figcaption strong{font-size:19px}}
+body[data-theme="dark"] .recommendations-heading .text-link{color:#f4f4f4;border-color:#ffffff60}
+@media(max-width:850px){.recommendations-section{padding:36px 7% 44px}.recommendations-heading{align-items:flex-start;flex-direction:column;gap:22px}}
+@media(max-width:650px){.recommendations-section{padding-left:6%;padding-right:6%}.recommendations-section .section-kicker .mono{display:none}}
+
 /* FrameSight: a schematic detection preview matching the project cards. */
 .framesight-art{background:#e6efec}
 .framesight-view{position:relative;overflow:hidden;min-height:210px;margin:20px 0;border-radius:10px;background:#132923;color:#b5efd3}
