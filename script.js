@@ -218,3 +218,17 @@ document.querySelectorAll('.project-open').forEach(button=>button.addEventListen
 document.querySelector('.modal-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('close',()=>{const video=document.querySelector('#modal-demo-video');video.pause();video.removeAttribute('src');video.load();});
 dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+
+// Keep the résumé available as a normal PDF link when JavaScript is disabled.
+const resumePreview = document.querySelector('#resume-preview');
+document.querySelector('#resume-preview-open').addEventListener('click', event => {
+  if (typeof resumePreview.showModal !== 'function') return;
+  event.preventDefault();
+  resumePreview.showModal();
+});
+document.querySelector('.resume-preview-close').addEventListener('click', () => resumePreview.close());
+resumePreview.addEventListener('click', event => {
+  if (event.target !== resumePreview) return;
+  const bounds = resumePreview.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) resumePreview.close();
+});

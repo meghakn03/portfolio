@@ -331,3 +331,19 @@ body[data-theme="dark"] .recommendations-heading .text-link{color:#f4f4f4;border
 .bioforge-sequence{padding:14px;background:#16392e;color:#a9ddc4;letter-spacing:3px;font-size:11px;overflow:hidden;white-space:nowrap}
 .bioforge-experiment{padding:20px;display:grid;gap:12px}.bioforge-experiment>.mono{font-size:9px;letter-spacing:1px}.bioforge-experiment strong{font-size:25px;letter-spacing:-1px}
 .bioforge-bars{display:flex;align-items:flex-end;height:45px;gap:8px}.bioforge-bars i{flex:1;height:65%;background:#70ad91;border-radius:3px 3px 0 0}.bioforge-bars i:nth-child(2){height:90%}.bioforge-bars i:nth-child(3){height:75%}.bioforge-bars i:nth-child(4){height:50%}.bioforge-bars i:nth-child(5){height:35%}
+
+/* Résumé preview keeps its download action above the PDF on every screen. */
+.resume-preview{width:min(1000px,94vw);max-width:none;height:90vh;height:90dvh;max-height:960px;padding:0;border:1px solid var(--line);border-radius:20px;background:var(--paper);color:var(--ink);box-shadow:0 30px 90px #0005;overflow:hidden}
+.resume-preview[open]{display:flex;flex-direction:column}
+.resume-preview::backdrop{background:#17132399;backdrop-filter:blur(12px)}
+body:has(.resume-preview[open]){overflow:hidden}
+.resume-preview-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;border-bottom:1px solid var(--line)}
+.resume-preview-kicker{font-size:10px;color:var(--muted)}
+.resume-preview-header h2{margin:5px 0 0;font:700 24px/1.2 var(--display);letter-spacing:-.04em}
+.resume-preview-actions{display:flex;align-items:center;gap:16px}
+.resume-preview-actions .button{white-space:nowrap}
+.resume-preview-close{display:grid;place-items:center;flex-shrink:0;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:transparent;color:inherit;font:28px/1 var(--sans);cursor:pointer}
+.resume-preview-close:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.resume-preview-document{display:block;width:100%;flex:1;min-height:0;border:0;background:#e8e8e8}
+.resume-preview-document p{padding:28px;color:#171717;line-height:1.7}
+@media(max-width:650px){.resume-preview{width:96vw;height:94vh;height:94dvh;border-radius:14px}.resume-preview-header{padding:16px;gap:12px;flex-wrap:wrap}.resume-preview-header h2{font-size:21px}.resume-preview-actions{width:100%;justify-content:space-between}.resume-preview-actions .button{padding:12px 18px}}

@@ -28,7 +28,7 @@
           <div class="eyebrow"><span class="eyebrow-line"></span> BUILDER ACROSS THE STACK <span class="mono">/ 01</span></div>
           <h1>I make complex<br />systems feel <span class="serif-accent">thoughtful.</span></h1>
           <p class="hero-intro">I’m Megha, an engineer with hands-on experience across three early-stage startups. In small teams, I’ve built across AI, data, product engineering and cloud, taking ideas through to shipped features.</p>
-          <div class="hero-actions"><a class="button button-dark" href="#work">Explore my work <span>↓</span></a><a class="text-link" href="assets/MeghaNeelamana_resume.pdf" download="Megha_Neelamana_Resume.pdf">Download résumé <span>↓</span></a><a class="text-link" href="mailto:meghakn230@gmail.com">Let’s talk <span>↗</span></a></div>
+          <div class="hero-actions"><a class="button button-dark" href="#work">Explore my work <span>↓</span></a><a class="text-link" href="assets/MeghaNeelamana_resume.pdf" id="resume-preview-open" aria-haspopup="dialog" aria-controls="resume-preview">Preview résumé <span>↗</span></a><a class="text-link" href="mailto:meghakn230@gmail.com">Let’s talk <span>↗</span></a></div>
           <div class="hero-meta"><span><i class="tiny-dot"></i> BASED IN THE UK</span><span>ENGINEERING, WITH INTENT</span></div>
         </div>
         <div class="portrait-column">
@@ -215,6 +215,18 @@
   </div>
 
   <dialog class="case-modal" id="case-modal" aria-labelledby="modal-title"><button class="modal-close" aria-label="Close case study">×</button><div class="modal-content"><div class="modal-kicker mono" id="modal-kicker"></div><h2 id="modal-title"></h2><p class="modal-summary" id="modal-summary"></p><div class="modal-columns"><div><span class="mono modal-label">THE BUILD</span><p id="modal-build"></p></div><div><span class="mono modal-label">WHAT IT SHOWS</span><ul id="modal-points"></ul></div></div><section class="modal-demo" id="modal-demo" hidden><span class="mono modal-label">WALKTHROUGH</span><video id="modal-demo-video" controls playsinline preload="metadata"></video><p id="modal-demo-caption"></p></section><div class="modal-bottom"><div class="stack-list" id="modal-stack"></div><a class="button button-dark modal-repo" target="_blank" rel="noreferrer">View source on GitHub <span>↗</span></a></div></div></dialog>
+  <dialog class="resume-preview" id="resume-preview" aria-labelledby="resume-preview-title">
+    <header class="resume-preview-header">
+      <div><span class="mono resume-preview-kicker">RÉSUMÉ</span><h2 id="resume-preview-title">Megha Neelamana</h2></div>
+      <div class="resume-preview-actions">
+        <a class="button button-dark" href="assets/MeghaNeelamana_resume.pdf" download="Megha_Neelamana_Resume.pdf">Download résumé <span aria-hidden="true">↓</span></a>
+        <button class="resume-preview-close" type="button" aria-label="Close résumé preview" autofocus>×</button>
+      </div>
+    </header>
+    <object class="resume-preview-document" data="assets/MeghaNeelamana_resume.pdf" type="application/pdf" aria-label="Megha Neelamana résumé PDF">
+      <p>Your browser cannot display this PDF here. <a href="assets/MeghaNeelamana_resume.pdf" target="_blank" rel="noreferrer">Open the résumé</a> or use the download button above.</p>
+    </object>
+  </dialog>
   <script src="script.js"></script>
 </body>
 </html>
